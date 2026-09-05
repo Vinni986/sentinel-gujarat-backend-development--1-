@@ -182,9 +182,9 @@ Password: admin123
 
 ### 3. Vehicle Intelligence (`/vehicles`)
 - Vehicle search by registration number
-- (Phase 2) Detection history
-- (Phase 2) Multi-camera route visualization
-- (Phase 2) Timeline view
+-  Detection history
+- Multi-camera route visualization
+- Timeline view
 
 ### 4. Watchlist (`/watchlist`)
 - **4 demo watchlist vehicles:**
@@ -203,8 +203,8 @@ Password: admin123
 - Evidence links
 
 ### 6. Evidence (`/evidence`)
-- (Phase 2) Captured images from detections
-- (Phase 2) Video clips
+-  Captured images from detections
+- Video clips
 - Evidence metadata
 
 ---
@@ -248,7 +248,7 @@ The hackathon demo will demonstrate this end-to-end workflow:
 
 ## 📋 Implementation Roadmap
 
-### ✅ **PHASE 1: Foundation** (COMPLETE)
+### ✅  **Foundation** 
 - Database schema with PostGIS
 - Frontend layout and navigation
 - All page shells
@@ -258,7 +258,7 @@ The hackathon demo will demonstrate this end-to-end workflow:
 - Dashboard with statistics
 - Seed data (50 cameras + 4 watchlist vehicles)
 
-### 🔄 **PHASE 2: AI Pipeline Setup** (NEXT)
+### 🔄 **AI Pipeline Setup** 
 **Goal:** Python service running YOLO + OCR
 
 **Tasks:**
@@ -293,8 +293,8 @@ ai-service/
 └── Dockerfile
 ```
 
-### 🔄 **PHASE 3: Vehicle Detection Display**
-**Goal:** Frontend shows detection results
+### 🔄 **Vehicle Detection Display**
+
 
 **Tasks:**
 1. Create `/api/vehicles/[plate]/detections` endpoint
@@ -302,8 +302,8 @@ ai-service/
 3. Add detection detail modal
 4. Image viewer for saved frames
 
-### 🔄 **PHASE 4: Multi-Camera Tracking**
-**Goal:** Vehicle route visualization
+### 🔄 **Multi-Camera Tracking**
+
 
 **Tasks:**
 1. Implement route correlation logic
@@ -311,8 +311,7 @@ ai-service/
 3. Add MapLibre integration
 4. Draw routes on map
 
-### 🔄 **PHASE 5: Watchlist + Alerts**
-**Goal:** Real-time alerting system
+### 🔄 **Watchlist + Alerts**
 
 **Tasks:**
 1. Alert detection logic (when plate matches watchlist)
@@ -320,10 +319,10 @@ ai-service/
 3. Alert notification UI
 4. Alert acknowledgment
 
-### 🔄 **PHASE 6: Evidence + Final Polish**
-**Goal:** Complete system
+### 🔄 **Evidence**
 
-**Tasks:**
+
+
 1. Evidence storage
 2. Evidence viewer
 3. Complete audit logging
@@ -436,46 +435,6 @@ npm run start
 
 ---
 
-## 📝 Important Notes
-
-### Demo vs. Production Data
-⚠️ **All current data is SYNTHETIC for development.**
-
-When government camera data is provided:
-1. Import via CSV/JSON using bulk import API
-2. Validate stream connectivity
-3. Test detection pipeline
-4. Activate cameras
-
-The system is designed to handle this transition without schema changes.
-
-### Security
-⚠️ **Current auth is simplified for hackathon.**
-
-For production:
-- Replace simple password hashing with bcrypt/argon2
-- Implement proper session management
-- Add JWT tokens
-- Encrypt camera credentials
-- Add role-based access control (RBAC)
-- Rate limiting on APIs
-
-### Performance
-Current setup handles:
-- ✅ 50 cameras
-- ✅ Thousands of detections
-- ✅ Real-time queries
-
-Future optimization needed for:
-- 500+ cameras: Add stream gateways
-- 5000+ cameras: Regional processing
-- 50000+ cameras: Distributed architecture
-
----
-
-## 🚦 Next Steps
-
-To continue development:
 
 1. **Set up Python AI service:**
 ```bash
